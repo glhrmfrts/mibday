@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Aniversário de Molena <3</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            background: url(/bg.jpg);
+            background-attachment: fixed;
+        }
+
+        .image {
+            width: 1024px;
+            height: 768px;
+            overflow: hidden;
+            border: 5px solid black;
+            text-align: center;
+        }
+
+        .page {
+            width: 1024px;
+            margin: 0 auto;
+        }
+
+        * {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+
+        .comic {
+            font-family: 'Comic Neue', cursive;
+        }
+
+        #page-container {
+            visibility: hidden;
+        }
+
+        .cowgame {
+            visibility: visible;
+            width: 100vw;
+            height: 100vh;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        .cowposition {
+            width: 10vw;
+            height: 10vh;
+            position: absolute;
+            left: 75vw;
+            top: 86vh;
+        }
+    </style>
+  </head>
+
+  <body>
+    <!-- page content -->
+
+    <div class="page-container" id="page-container">
+
+        <div class="page">
+
+            <div class="image" id="image-0">
+                <h1>Meu amor <3</h1>
+
+                <h3 class="comic">Feliz aniversário meu anjo</h3>
+
+                <h3 class="comic">Obrigado por me dar o privilégio de passar quase 1 ano com você</h3>
+
+                <h3 class="comic">Enquanto seu presente não chega, fiz esse sitezinho pra agradecer por tudo e desejar um ótimo aniversário</h3>
+
+                <h3 class="comic">TE AMOOOOOOOOOOOOOOOOOOOOOO <3</h3>
+
+                <img height="400" src="./heart.webp" />
+            </div>
+
+            <div class="image" id="image-1">
+                <img height="768" src="/p1.png" />
+            </div>
+            <div class="image" id="image-2">
+                <img width="800" height="600" src="/p2.png" />
+            </div>
+            <div class="image" id="image-3">
+                <img  src="/p3.png" />
+            </div>
+            <div class="image" id="image-4">
+                <img  src="/p4.png" />
+            </div>
+            <div class="image" id="image-5">
+                <img height="600" src="/p5.png" />
+            </div>
+            <div class="image" id="image-6">
+                <img  src="/p6.jpg" />
+            </div>
+
+            <div class="image" id="image-7">
+                <h1>E agora nossa melhor foto...</h1>
+            </div>
+
+            <div class="image" id="image-8">
+                <img  width="1024" src="/p7.jpeg" />
+            </div>
+
+            <div class="image" id="image-9">
+                <h1>Feliz aniversário de novo, love you <3</h1>
+            </div>
+        </div>
+    </div>
+
+    <div class="cowgame" id="cowgame">
+        <div class="cowposition" id="cowposition">
+
+        </div>
+    </div>
+
+    <script>
+        console.log('niceeeeeeeeee')
+
+        var audios = [
+            new Audio('1.mp3'),
+            new Audio('2.mp3'),
+            new Audio('3.mp3'),
+            new Audio('4.mp3'),
+            new Audio('5.mp3'),
+            new Audio('6.mp3'),
+            new Audio('7.mp3'),
+            new Audio('8.mp3'),
+            new Audio('9.mp3'),
+            new Audio('10.mp3'),
+            new Audio('11.mp3'),
+        ];
+        var scrollNum = 0;
+
+        var cowposition = document.getElementById('cowposition');
+        var cowgame = document.getElementById('cowgame');
+
+        function scrollImage() {
+            console.log(scrollNum);
+            //window.scrollTo(0, document.getElementById('image-' + scrollNum).scrollTop);
+            document.getElementById('image-' + scrollNum).scrollIntoView();
+            scrollNum += 1;
+            window.setTimeout(scrollImage, 7000);
+        }
+
+        // window.setTimeout(scrollImage, 5000);
+
+        cowgame.onclick = function(e) {
+            console.log('NOCLICKKKKKKKKKKKKK')
+
+            var rect = cowposition.getBoundingClientRect();
+            var x = e.clientX - rect.left; //x position within the element.
+            var y = e.clientY - rect.top;  //y position within the element.
+
+            if (x > 0) {
+                //x += rect.width;
+            } else {
+                x -= rect.width;
+            }
+            if (y > 0) {
+               // y += rect.height;
+            } else {
+                y -= rect.height;
+            }
+
+            var dist_x = Math.abs(x);
+            var dist_y = Math.abs(y);
+            console.log("Left? : " + dist_x + " ; Top? : " + dist_y + ". w:" + rect.width + "h:" + rect.height);
+            
+            var len = Math.sqrt(dist_x*dist_x + dist_y*dist_y);
+            console.log(len);
+            if (len > 1700) {
+                audios[0].play();
+            }
+            else if (len > 1400) {
+                audios[1].play();
+            }
+            else if (len > 1200) {
+                audios[2].play();
+            }
+            else if (len > 1000) {
+                audios[3].play();
+            }
+            else if (len > 900) {
+                audios[4].play();
+            }
+            else if (len > 800) {
+                audios[5].play();
+            }
+            else if (len > 700) {
+                audios[6].play();
+            }
+            else if (len > 500) {
+                audios[7].play();
+            }
+            else if (len > 400) {
+                audios[8].play();
+            }
+            else if (len > 300) {
+                audios[9].play();
+            }
+            else if (len > 100) {
+                audios[10].play();
+            }
+        }
+
+        cowposition.onclick = function() {
+            document.getElementById('cowgame').style.visibility = 'hidden'
+            document.getElementById('cowposition').style.visibility = 'hidden'
+            document.getElementById('page-container').style.visibility = 'visible'
+
+            scrollNum = 0;
+            scrollImage();
+        }
+    </script>
+  </body>
+  
+</html>
